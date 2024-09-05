@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Management</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+table, th, td {
+    border: 1px solid #ddd;
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+form {
+    margin-top: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+input[type="text"], input[type="email"], input[type="number"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #218838;
+}
+.red{
+    background-color: red;
+}
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+a:hover {
+    text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Management</h1>
+
+        <!-- Display users -->
+        <% if (users && users.length) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                        <th>Actions</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach((user,i) => { %>
+                        <tr>
+                            <form action="/edit/<%= user.id %>" method="POST">
+                            <td><%= i+1 %></td>
+                            <td>
+                                <input type="text" name="name" value="<%= user.name %>" required>
+                            </td>
+                            <td>
+                                <input type="text" name="name" value="<%= user.email %>" required>
+                            </td>
+                            <td>
+                                <input type="text" name="name" value="<%= user.age %>" required>
+                            </td>
+                            <td>
+                                <button type="submit">EDIT</button>
+                            </td>
+                            </form>
+                            <form action="/delete/<%= user.id %>" method="POST">
+                            <td>
+                                <button type="submit" class="red">DELETE</button>  
+                            </td>
+                            </form>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No users found.</p>
+        <% } %>
+
+        <!-- Create user form -->
+        <h2>Create New User</h2>
+        <form action="/create" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <button type="submit">Create User</button>
+        </form>
+    </div>
+</body>
+</html>

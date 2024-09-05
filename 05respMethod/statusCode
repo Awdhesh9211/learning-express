@@ -1,0 +1,62 @@
+  // 1XX : INFORMATION 
+        //    100 - Continue
+        //    101 - Switching Protocol
+        //    102 - Processing
+    // 2XX : SUCCESS 
+        //    200 OK 
+        //    201 Created
+        //    202 Accepted
+        //    203 Non-Auth
+        //    204 No Content 
+        //    205 Reset Content 
+        //    206 Partial Content 
+        //    207 Multi Status 
+    // 3XX : REDIRECTION 
+        //    300 Multiplae choice 
+        //    301 Moved Parmanently
+        //    302 Found
+        //    303 See Other 
+        //    304 Not Modified 
+        //    307 Temporary Redirect 
+        //    308 Permanent Redirect 
+    //  4XX : CLIENT ERROR 
+        //    400 Bad Req
+        //    401 Unauthorized
+        //    402 Payment Required
+        //    403 Forbidden
+        //    404 Not Found 
+        //    405 Method Not Allowed
+        //    406 Not Accepted 
+        //    407 Proxy Authentication require 
+        //    408 Request Timeout 
+        //    409 Conflict
+        //    410 Gone 
+        //    411 Length Required 
+        //    412 Precondition Failed 
+        //    413 Payload TooLarge 
+        //    414 URL Too Long
+        //    415 Unsupported Media Type 
+        //    416 Range Not Satisfied
+        //    417 Exception Failed 
+        //    418 I'm a Teapot 
+        //    422 Unprocessable Entity 
+        //    423 Locked 
+        //    424 Failed Dependency 
+        //    425 Too Early 
+        //    426 Upgraide Required
+        //    428 Precondition Required 
+        //    429 Too Many Request 
+        //    431 Request Header Field too large 
+        //    451 Unavailabe foe leagal reasone 
+    // 5XX : SERVER ERROR 
+        //  500 Internal error 
+        //  501 Not Implemented 
+        //  502 Bad Gatway
+        //  503 Service Unavailabe 
+        //  504 Gatway Timeout 
+        //  505 HTTP Version Not Supported 
+        //  506 Varient also nagotiate 
+        //  507 Insufficient storage 
+        //  508 Looop detected 
+        //  510 Not extended 
+        //  511 network Authentication required 

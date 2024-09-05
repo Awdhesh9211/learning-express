@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bcrypt Password Hashing</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Bcrypt Password Hashing</h1>
+    
+    <form action="/hash" method="POST">
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" required>
+      </div>
+      <button type="submit">Hash Password</button>
+    </form>
+
+    <% if (hashedPassword) { %>
+      <h2>Hashed Password</h2>
+      <p><%= hashedPassword %></p>
+    <% } %>
+
+    <form action="/verify" method="POST">
+      <div class="form-group">
+        <label for="passwordToVerify">Password to Verify:</label>
+        <input type="text" id="passwordToVerify" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="hashedPassword">Hashed Password:</label>
+        <textarea id="hashedPassword" name="hashedPassword" rows="4" required></textarea>
+      </div>
+      <button type="submit">Verify Password</button>
+    </form>
+
+    <% if (message) { %>
+      <h2>Result</h2>
+      <p><%= message %></p>
+    <% } %>
+  </div>
+</body>
+</html>

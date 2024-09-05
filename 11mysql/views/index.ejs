@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYSQL-EXAMPLE</title>
+</head>
+<body>
+    <h1>Users</h1>
+    <form action="/add" method="post">
+        <input type="text" name="name" placeholder="Enter user name..." required>
+        <input type="text" name="age" placeholder="Enter user age..." required>
+        <button type="submit">ADD USER</button>
+    </form>
+    <ul>
+        <% users && users.forEach(user => { %>   
+         <li>
+             <%= user.name %> - <%= user.age %>
+             <form action="/update/<%= user.id %>" method="POST" style="display: inline;">
+                <input type="text" name="name" value="<%= user.name %>" required>
+                <input type="text" name="age" value="<%= user.age %>" required>
+                <button type="submit">UPDATE</button>
+             </form>
+             <form action="/delete/<%= user.id %>" method="POST" style="display: inline;">
+                <button type="submit">DELETE</button>
+             </form>
+         </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
